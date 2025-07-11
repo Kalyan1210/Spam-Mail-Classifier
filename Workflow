@@ -1,0 +1,47 @@
+            ┌────────────────────────┐
+            │ 1. Dataset (spam.csv)  │
+            └──────────┬─────────────┘
+                       │
+                       ▼
+         ┌────────────────────────────┐
+         │ 2. Train.py (Keras Model)  │
+         │ - Preprocessing            │
+         │ - Tokenizer                │
+         │ - Model training           │
+         └──────────┬─────────────────┘
+                    │
+         ┌──────────▼──────────┐
+         │ 3. Model Artifacts  │
+         │ - best_model.keras │
+         │ - tokenizer.pickle │
+         └──────────┬──────────┘
+                    │
+                    ▼
+         ┌──────────────────────────────┐
+         │ 4. Flask App (app.py)        │
+         │ - /predict endpoint          │
+         │ - /metrics (Prometheus)      │
+         └──────────┬───────────────────┘
+                    │
+         ┌──────────▼──────────┐
+         │ 5. Dockerfile       │
+         │ - Build API image   │
+         └──────────┬──────────┘
+                    │
+         ┌──────────▼─────────────┐
+         │ 6. Kubernetes (YAMLs)  │
+         │ - Deployment           │
+         │ - Service (NodePort)   │
+         │ - CronJob (retrain)    │
+         └──────────┬─────────────┘
+                    │
+         ┌──────────▼──────────┐
+         │ 7. Prometheus       │
+         │ - Scrapes /metrics  │
+         └──────────┬──────────┘
+                    │
+         ┌──────────▼──────────┐
+         │ 8. Grafana          │
+         │ - Dashboards        │
+         │ - Alerts (optional) │
+         └─────────────────────┘

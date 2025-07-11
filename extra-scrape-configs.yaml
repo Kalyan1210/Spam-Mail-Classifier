@@ -1,0 +1,13 @@
+# extra-scrape-configs.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: extra-scrape-configs
+type: Opaque
+data:
+  prometheus.yml: |
+    - job_name: 'spam-api'
+      metrics_path: /metrics
+      scrape_interval: 15s
+      static_configs:
+        - targets: ['spam-api-service.default.svc.cluster.local:80']
